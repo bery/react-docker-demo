@@ -1,5 +1,5 @@
 server {
-    listen       3000;
+    listen       ${NGINX_PORT};
     server_name  localhost;
     location /healtz {
         default_type text/plain;
