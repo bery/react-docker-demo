@@ -1,0 +1,18 @@
+FROM node:19-alpine as builder
+
+WORKDIR /app
+
+COPY ./yarn.lock ./package.json /app/
+
+RUN yarn --frozen-lock-file --production && yarn cache clean
+
+COPY . /app/
+
+RUN yarn build
+
+FROM nginx:alpine
+
+COPY conf/default.conf /etc/nginx/conf.d/
+COPY --from= --chown=nginx:nginx build /usr/share/nginx/html/
+
+CMD ["nginx", "-g", "daemon off;"]
