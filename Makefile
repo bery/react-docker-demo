@@ -1,6 +1,6 @@
-NGINX_PORT ?= 3000
-DOCKER_BUILDX_PLATFORM = linux/arm/v8,linux/amd64
-DOCKER_TAG ?= 2.0.0
+NGINX_PORT ?= 80
+DOCKER_BUILDX_PLATFORM = linux/amd64
+DOCKER_TAG ?= 0.0.3
 docker-build-nocache:
 	docker build --nocache . -t dsrcaapp.azurecr.io/react-demo:$(DOCKER_TAG)
 docker-build:
