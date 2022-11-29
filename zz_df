@@ -1,0 +1,18 @@
+FROM node:19 as builder
+
+WORKDIR /app
+
+COPY ./yarn.lock ./package.json /app/
+
+RUN yarn --frozen-lock-file --production && yarn cache clean
+
+COPY . /app/
+
+RUN yarn build
+
+FROM nginxinc/nginx-unprivileged:alpine
+
+COPY conf/default.conf.template /etc/nginx/templates/
+COPY --from=builder --chown=nginx:nginx /app/build /usr/share/nginx/html/
+
+CMD ["nginx", "-g", "daemon off;"]
