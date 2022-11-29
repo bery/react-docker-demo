@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '7d5f8e12-6c39-4e3b-9d04-45e2ec800e71'
-  imageRepository: 'reactdemoazdpipeline'
+  imageRepository: 'react-demo'
   containerRegistry: 'dsrcaapp.azurecr.io'
   dockerfilePath: '**/zz_df'
   tag: '$(Build.BuildId)'
