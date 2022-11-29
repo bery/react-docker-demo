@@ -14,7 +14,7 @@ RUN yarn build
 
 FROM nginx:alpine
 
-COPY conf/default.conf.template /etc/nginx/templates/
+COPY conf/default.conf /etc/nginx/conf.d/
 COPY --from=builder --chown=nginx:nginx /app/build /usr/share/nginx/html/
 
 CMD ["nginx", "-g", "daemon off;"]
