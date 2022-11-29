@@ -13,7 +13,7 @@ variables:
   dockerRegistryServiceConnection: '7d5f8e12-6c39-4e3b-9d04-45e2ec800e71'
   imageRepository: 'reactdemoazdpipeline'
   containerRegistry: 'dsrcaapp.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: '**/docs/30_Dockerfile.production'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
