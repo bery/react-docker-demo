@@ -45,7 +45,7 @@ stages:
         WebAppName: 'reactappademo'
         deployToSlotOrASE: true
         ResourceGroupName: 'dsrca'
-        SlotName: 'v2'
+        SlotName: 'staging'
         DockerNamespace: 'dsrcaapp.azurecr.io'
         DockerRepository: 'react-demo'
         DockerImageTag: '$(tag)'
