@@ -36,4 +36,15 @@ stages:
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
-          $(tag)
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Azure subscription 1(7ec3dfd2-0916-44a4-8197-636d83dcc56b)'
+        appType: 'webAppContainer'
+        WebAppName: 'reactappademo'
+        deployToSlotOrASE: true
+        ResourceGroupName: 'dsrca'
+        SlotName: 'v2'
+        DockerNamespace: 'dsrcaapp.azurecr.io'
+        DockerRepository: 'react-demo'
+        DockerImageTag: '$(tag)'
