@@ -1,0 +1,27 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  dive:
+    cmds:
+      - docker build . -t react-demo
+  build:
+    cmds:
+      - docker build . -t react-demo
+  run:
+    cmds:
+      - docker run --rm -p 8080:8080 react-demo
+  build-run:
+    deps:
+      - build
+      - run
+  prune:
+    cmds:
+      - docker image prune -f
+      - docker container prune -f
+      - docker volume prune -f
+  default:
+    cmds:
+      - echo "hey there"
+    silent: true

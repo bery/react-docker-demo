@@ -6,6 +6,7 @@ COPY ./yarn.lock ./package.json /app/
 
 RUN yarn --frozen-lock-file --production && yarn cache clean
 
+#check context size!
 COPY . /app/
 
 RUN yarn build
