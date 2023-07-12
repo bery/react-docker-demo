@@ -10,7 +10,7 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '572f2ef7-4ef3-425a-b292-dccb65928788'
+  dockerRegistryServiceConnection: 'debb5d63-6c67-4d88-913f-25db92d2e701'
   imageRepository: 'webappdemo'
   containerRegistry: 'dsrcaapp.azurecr.io'
   dockerfilePath: '**/Dockerfile'
@@ -40,7 +40,7 @@ stages:
     - task: AzureRmWebAppDeployment@4
       inputs:
         ConnectionType: 'AzureRM'
-        azureSubscription: 'Azure subscription 1(7ec3dfd2-0916-44a4-8197-636d83dcc56b)'
+        azureSubscription: 'sc'
         appType: 'webAppContainer'
         WebAppName: 'reactappademo'
         deployToSlotOrASE: true

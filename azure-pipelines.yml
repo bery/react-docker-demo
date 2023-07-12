@@ -10,8 +10,8 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'debb5d63-6c67-4d88-913f-25db92d2e701'
-  imageRepository: 'react-demo'
+  dockerRegistryServiceConnection: '70bfffe0-b1a8-4cc0-9d3a-9c2c549d1f7f'
+  imageRepository: 'reactdemo'
   containerRegistry: 'dsrcaapp.azurecr.io'
   dockerfilePath: '**/zz_df'
   tag: '$(Build.BuildId)'
@@ -37,15 +37,12 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-    - task: AzureRmWebAppDeployment@4
+    - task: AzureWebAppContainer@1
       inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'sc'
-        appType: 'webAppContainer'
-        WebAppName: 'reactappademo'
+        azureSubscription: 'Azure subscription 1(7ec3dfd2-0916-44a4-8197-636d83dcc56b)'
+        appName: 'dsreact-demo'
         deployToSlotOrASE: true
-        ResourceGroupName: 'dsrca'
-        SlotName: 'staging'
-        DockerNamespace: 'dsrcaapp.azurecr.io'
-        DockerRepository: 'react-demo'
-        DockerImageTag: '$(tag)'
+        resourceGroupName: 'dsrcaapp'
+        slotName: 'production'
+        containers: '$(tag)'
+        multicontainerConfigFile: 'Dockerfile'
