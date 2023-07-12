@@ -45,4 +45,3 @@ stages:
         resourceGroupName: 'dsrcaapp'
         slotName: 'production'
         containers: 'dsrcaapp.azurecr.io/reactdemo:$(tag)'
-        multicontainerConfigFile: 'Dockerfile'
