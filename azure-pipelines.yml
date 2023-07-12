@@ -44,5 +44,5 @@ stages:
         deployToSlotOrASE: true
         resourceGroupName: 'dsrcaapp'
         slotName: 'production'
-        containers: '$(tag)'
+        containers: 'dsrcaapp.azurecr.io/reactdemo:$(tag)'
         multicontainerConfigFile: 'Dockerfile'
