@@ -16,6 +16,9 @@ tasks:
     deps:
       - build
       - run
+  push:
+    cmds:
+      - docker push react-demo:latest
   prune:
     cmds:
       - docker image prune -f
