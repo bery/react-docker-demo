@@ -3,7 +3,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- main
+- dev
 
 resources:
 - repo: self
@@ -43,5 +43,5 @@ stages:
         appName: 'dsreact-demo'
         deployToSlotOrASE: true
         resourceGroupName: 'dsrcaapp'
-        slotName: 'production'
+        slotName: 'staging'
         containers: 'dsrcaapp.azurecr.io/reactdemo:$(tag)'
